@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Confirmar reserva</h2>
+<p>Tipo: {{ habitacion.tipo }} — Precio: ${{ habitacion.precio }}</p>
+
+<form method="POST">
+  <label>Fecha inicio:</label>
+  <input type="date" name="fecha_inicio" required><br>
+  <label>Fecha fin:</label>
+  <input type="date" name="fecha_fin" required><br>
+  <button type="submit">Confirmar</button>
+</form>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Simular pago</h2>
+<p>Reserva #{{ reserva.id }} — Tipo: {{ reserva.habitacion.tipo }} — Monto: ${{ reserva.habitacion.precio }}</p>
+
+<form method="POST">
+  <label>Método de pago:</label>
+  <select name="metodo">
+    <option value="Tarjeta de crédito">Tarjeta de crédito</option>
+    <option value="Transferencia bancaria">Transferencia bancaria</option>
+    <option value="Efectivo">Efectivo</option>
+  </select><br><br>
+  <button type="submit">Confirmar pago</button>
+</form>
+{% endblock %}

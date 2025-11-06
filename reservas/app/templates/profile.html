@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Mis reservas</h2>
+{% if reservas %}
+  <ul>
+    {% for r in reservas %}
+      <li>{{ r.habitacion.tipo }} | {{ r.fecha_inicio }} → {{ r.fecha_fin }} | {{ r.estado }}</li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No tienes reservas aún.</p>
+{% endif %}
+{% endblock %}

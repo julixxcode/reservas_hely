@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Buscar habitaciones</h2>
+<form method="POST">
+  <label>Tipo de habitación:</label>
+  <select name="tipo">
+    <option value="Simple">Simple</option>
+    <option value="Doble">Doble</option>
+    <option value="Suite">Suite</option>
+  </select><br>
+  <label>Fecha inicio:</label>
+  <input type="date" name="fecha_inicio" required><br>
+  <label>Fecha fin:</label>
+  <input type="date" name="fecha_fin" required><br>
+  <button type="submit">Buscar</button>
+</form>
+
+{% if habitaciones %}
+<h3>Disponibles:</h3>
+<ul>
+  {% for h in habitaciones %}
+  <li>{{ h.tipo }} - ${{ h.precio }}
+    <a href="{{ url_for('booking.reservar', habitacion_id=h.id) }}">Reservar</a>
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}
+{% endblock %}
